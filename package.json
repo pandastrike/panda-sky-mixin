@@ -1,0 +1,48 @@
+{
+  "name": "panda-sky-mixin",
+  "version": "0.0.1",
+  "description": "Base Interface for the Various Panda Sky Mixins",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepare": "node_modules/.bin/coffee --compile --transpile --inline-map --output lib/ src/",
+    "postpublish": "(json -f package.json version | xargs -I version git tag -am version version) && git push --tags",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pandastrike/panda-sky-mixin.git"
+  },
+  "keywords": [
+    "serverless",
+    "aws",
+    "mixin",
+    "panda",
+    "sky"
+  ],
+  "contributors": [
+    {
+      "name": "Dan Yoder",
+      "email": "dan@pandastrike.com"
+    },
+    {
+      "name": "David Harper",
+      "email": "david@pandastrike.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pandastrike/panda-sky-mixin/issues"
+  },
+  "homepage": "https://github.com/pandastrike/panda-sky-mixin#readme",
+  "devDependencies": {
+    "babel-core": "6.26.0",
+    "babel-preset-env": "1.6.1",
+    "coffeescript": "2.0.2",
+    "json": "^9.0.6"
+  },
+  "dependencies": {
+    "jsck": "0.3.2",
+    "panda-serialize": "^0.2.0",
+    "panda-template": "^0.4.1"
+  }
+}
