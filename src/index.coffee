@@ -4,9 +4,13 @@ class Mixin
   constructor: (config) ->
     {@policyStatements, @schema, @template, @preprocess, @cli, @name} = config
     @policyStatements ||=  []
-    @preprocess || (n) -> n
     @cli ||= false
-    @T = new Templater @name, @template, @schema
+
+    @getMixinConfig = (n) -> n.aws.environments[n.env].mixins[@name]
+    @preprocess ||= @getMixinConfig
+
+    @T = new Templater @name, @getMixinConfig, @template, @schema
+
 
   registerPartial: (name, template) ->
     @T.registerPartial name, template
