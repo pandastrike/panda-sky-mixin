@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Base Interface for the Various Panda Sky Mixins",
   "main": "lib/index.js",
+  "files": [
+    "lib/",
+    "LICENSE"
+  ],
   "scripts": {
     "prepare": "node_modules/.bin/coffee --compile --transpile --inline-map --output lib/ src/",
     "postpublish": "(json -f package.json version | xargs -I version git tag -am version version) && git push --tags",
@@ -43,6 +47,6 @@
   "dependencies": {
     "jsck": "0.3.2",
     "panda-serialize": "^0.2.0",
-    "panda-template": "^0.4.1"
+    "panda-template": "^0.4.2"
   }
 }

@@ -2,15 +2,16 @@ import Templater from "./templater"
 
 class Mixin
   constructor: (config) ->
-    {@policyStatements, @schema, @template, @preprocess, @cli} = config
+    {@policyStatements, @schema, @template, @preprocess, @cli, @name} = config
     @policyStatements ||=  []
-    @preprocess ||= (n) -> n
+    @preprocess || (n) -> n
     @cli ||= false
+    @T = new Templater @name, @template, @schema
 
-    @T = new Templater @template, @schema
+  registerPartial: (name, template) ->
+    @T.registerPartial name, template
 
-  registerPartial: @T.registerPartial
-  render: (config) ->  @T.render await @preprocess config
+  render: (config) ->  @T.render @preprocess, config
 
 
 export default Mixin
