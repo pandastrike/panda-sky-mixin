@@ -40,9 +40,11 @@
   "homepage": "https://github.com/pandastrike/panda-sky-mixin#readme",
   "devDependencies": {
     "babel-core": "6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "1.6.1",
     "coffeescript": "2.1.0",
-    "json": "^9.0.6"
+    "json": "^9.0.6",
+    "source-map-support": "^0.5.0"
   },
   "dependencies": {
     "jsck": "0.3.2",
