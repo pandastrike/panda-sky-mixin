@@ -9,13 +9,20 @@ class Mixin
     @getMixinConfig = (n) -> n.aws.environments[n.env].mixins[@name]
     @preprocess ||= @getMixinConfig
 
-    @T = new Templater @name, @getMixinConfig, @template, @schema
+    templateConfig =
+      name: @name
+      getMixinConfig: @getMixinConfig
+      template: @template
+      schema: @schema
+      preprocess: @preprocess
+
+    @T = new Templater templateConfig
 
 
   registerPartial: (name, template) ->
     @T.registerPartial name, template
 
-  render: (config) ->  @T.render @preprocess, config
+  render: (AWS, config) ->  @T.render AWS, config
 
 
 export default Mixin
