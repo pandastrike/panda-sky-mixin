@@ -1,6 +1,6 @@
 {
   "name": "panda-sky-mixin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Base Interface for the Various Panda Sky Mixins",
   "main": "lib/index.js",
   "files": [
