@@ -2,8 +2,9 @@ import Templater from "./templater"
 
 class Mixin
   constructor: (config) ->
-    {@getPolicyStatements, @schema, @template, @preprocess, @cli, @name} = config
-    @getPolicyStatements ||=  []
+    {@getPolicyStatements, @getEnvironmentVariables, @schema, @template, @preprocess, @cli, @name} = config
+    @getPolicyStatements ||=  -> []
+    @getEnvironmentVariables ||= -> {}
     @cli ||= false
 
     @getMixinConfig = (n) -> n.aws.environments[n.env].mixins[@name]
